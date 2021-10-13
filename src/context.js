@@ -12,7 +12,6 @@ const table = {
   }
 
 const API_ENDPOINT = 'https://opentdb.com/api.php?'
-const urlExample = 'https://opentdb.com/api.php?amount=10&category=21&difficulty=easy&type=multiple'
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
@@ -25,7 +24,7 @@ const AppProvider = ({ children }) => {
   const [index, setIndex]= useState(0)
   const [quiz, setQuiz] = useState({
       amount: 10,
-      category :'sports',
+      category :'animals',
       difficulty: 'easy'
   })
 
@@ -70,7 +69,7 @@ const AppProvider = ({ children }) => {
     const value = e.target.value;
     setQuiz({...quiz, [attribute]: value})
   }
-  
+
   const handleSubmit = (e)=> {
       e.preventDefault();
       const {amount, category, difficulty} = quiz;

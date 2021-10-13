@@ -101,7 +101,7 @@ Variables
       font-size: 3rem;
     }
     h2 {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
     }
     h3 {
       font-size: 1.75rem;
@@ -185,6 +185,14 @@ Variables
   .answer-btn:hover {
     background: var(--clr-primary-5);
     color: var(--clr-white);
+  }
+  .question-number {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: var(--spacing);
+    color: var(--clr-grey-2);
   }
   .correct-answers {
     font-size: 1rem;

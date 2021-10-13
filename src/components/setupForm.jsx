@@ -36,7 +36,6 @@ const SetupForm = () => {
             >
               <option value="animal">animals</option>
               <option value="art">art</option>
-
               <option value="celebrities">celebrities</option>
               <option value="politics">politics</option>
               <option value="music">music</option>
@@ -57,6 +56,11 @@ const SetupForm = () => {
                 <option value="hard">hard</option>
             </select>
           </div>
+          {error && (
+            <p className='error'>
+              can't generate questions, please try different options
+            </p>
+          )}
           <button type="submit" className="submit-btn" onClick={handleSubmit}>
               start
           </button>

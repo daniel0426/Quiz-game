@@ -1,7 +1,8 @@
 import React from "react";
+import { useGlobalContext } from "../context";
 
 const SetupForm = () => {
-  const handleChange = () => {};
+  const {quiz, error,handleChange, handleSubmit, } = useGlobalContext()
   return (
     <main>
       <section className="quiz quiz-small">
@@ -14,7 +15,7 @@ const SetupForm = () => {
               type="number"
               name="amount"
               id="amount"
-              // value = {}
+              value = {quiz.amount}
               onChange={handleChange}
               className="form-input"
               min={1}
@@ -27,17 +28,20 @@ const SetupForm = () => {
             <select
               name="category"
               id="category"
-              // value = {}
+              value = {quiz.category}
               onChange={handleChange}
               className="form-input"
               min={1}
               max={50}
             >
-              <option value="sports">sports</option>
-              <option value="politics">politics</option>
-              <option value="animal">animal</option>
-              <option value="vehicle">vehicle</option>
+              <option value="animal">animals</option>
+              <option value="art">art</option>
+
               <option value="celebrities">celebrities</option>
+              <option value="politics">politics</option>
+              <option value="music">music</option>
+              <option value="sports">sports</option>
+              <option value="vehicle">vehicle</option>
             </select>
           </div>
           {/* difficulty  */}
@@ -45,7 +49,7 @@ const SetupForm = () => {
             <label htmlFor="difficulty"></label>
             <select name="difficulty" id="difficulty"
                 className='form-input'
-                // value={}
+                value={quiz.difficulty}
                 onChange={handleChange}
             >
                 <option value="easy">easy</option>
@@ -53,7 +57,7 @@ const SetupForm = () => {
                 <option value="hard">hard</option>
             </select>
           </div>
-          <button type="submit" className="submit-btn">
+          <button type="submit" className="submit-btn" onClick={handleSubmit}>
               start
           </button>
         </form>

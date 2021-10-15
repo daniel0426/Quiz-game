@@ -86,6 +86,15 @@ const AppProvider = ({ children }) => {
       setWaiting(true)
       setCorrect(0);
   }
+  const goToHome = ( )=> {
+    let confirmMessage = window.confirm('Do you really want to go to home screen? ')
+    if(confirmMessage){
+      setWaiting(true);
+      setCorrect(0);
+      setIndex(0);
+    }
+  }
+  
   return (
     <AppContext.Provider
       value={{
@@ -103,6 +112,7 @@ const AppProvider = ({ children }) => {
         quiz,
         correct,
         modalOpen,
+        goToHome
       }}
     >
       {children}

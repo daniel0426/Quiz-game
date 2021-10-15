@@ -19,6 +19,15 @@
       max-width: 60%;
     }
   }
+  .back-btn {
+      color: var(--clr-error-dark);
+      font-size: 1.6em;
+      cursor: pointer;
+      transition: var(--transition);
+  }
+  .back-btn:hover{
+      transform: scale(1.05);
+  }
   .answer-btn {
     display: block;
     width: 100%;

@@ -1,9 +1,11 @@
 import React from "react";
 import { useGlobalContext } from "../context";
 import shuffleArray from "../utils";
+import styles from './question.module.css';
+
 
 const Question = () => {
-    const {  index, questions, nextQuestion, correct, checkAnswer } = useGlobalContext();
+    const {  index, questions, nextQuestions, correct, checkAnswer } = useGlobalContext();
     const { question, incorrect_answers, correct_answer } = questions[index];
 
     const answers = shuffleArray([...incorrect_answers, correct_answer]);
@@ -11,26 +13,27 @@ const Question = () => {
     const createQuestionMarkup = (question)=> {
         return {__html:question }
     }
+
     const createAnserMarkup = (answer)=> {
         return {__html:answer}
     }
 
   return (
-    <section className="quiz">
-        <p className="question-number">
+    <section className={styles.quiz}>
+        <p className={styles["question-number"]}>
             Question: {index <= questions.length ? index+1 : null}
         </p>
-      <p className="correct-answers">
+      <p className={styles["correct-answers"]}>
         correct answers : {correct}/{questions.length }
       </p>
-      <article className="container">
+      <article className={styles.container}>
         <h2 dangerouslySetInnerHTML={createQuestionMarkup(question)} />
-        <div className="btn-container">
+        <div className={styles["btn-container"]}>
           {answers.map((answer, index) => {
             return (
               <button
                 key={index}
-                className="answer-btn"
+                className={styles["answer-btn"]}
                 onClick={() => checkAnswer(correct_answer === answer)}
                 dangerouslySetInnerHTML={createAnserMarkup(answer)}
               />
@@ -38,7 +41,7 @@ const Question = () => {
           })}
         </div>
       </article>
-      <button className="next-question" onClick={nextQuestion}>
+      <button className={styles["next-question"]} onClick={nextQuestions}>
         next question
       </button>
     </section>

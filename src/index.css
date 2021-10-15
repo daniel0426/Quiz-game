@@ -1,18 +1,12 @@
-/*
-=============== 
-Variables
-===============
-*/
 
+/* root variables */
 :root {
     /* dark shades of primary color*/
     --clr-primary-1: hsl(205, 86%, 17%);
     --clr-primary-2: hsl(205, 77%, 27%);
     --clr-primary-3: hsl(205, 72%, 37%);
     --clr-primary-4: hsl(205, 63%, 48%);
-    /* primary/main color */
     --clr-primary-5: hsl(205, 78%, 60%);
-    /* lighter shades of primary color */
     --clr-primary-6: hsl(205, 89%, 70%);
     --clr-primary-7: hsl(205, 90%, 76%);
     --clr-primary-8: hsl(205, 86%, 81%);
@@ -31,25 +25,22 @@ Variables
     --clr-grey-9: hsl(212, 33%, 89%);
     --clr-grey-10: hsl(210, 36%, 96%);
     --clr-white: #fff;
-    --clr-red-dark: hsl(360, 67%, 44%);
-    --clr-red-light: hsl(360, 71%, 66%);
     --clr-green-dark: hsl(125, 67%, 44%);
     --clr-green-light: hsl(125, 71%, 66%);
     --clr-black: #222;
-    --transition: all 0.3s linear;
+    /* red used for error message */
+    --clr-error-dark : #b20000;
+    --btn-color: #ffb100;
+    --transition: all 0.25s linear;
     --spacing: 0.1rem;
     --radius: 0.25rem;
-    --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    --max-width: 1170px;
+    --dark-shadow: 23px 27px 42px -5px rgba(33,32,28,0.75);
+    --yellow-shadow: 10px 15px 10px 3px rgba(222,194,54,0.5);
+    --max-width: 1170px; 
     --fixed-width: 620px;
   }
-  /*
-  =============== 
-  Global Styles
-  ===============
-  */
-  
+
+  /* global style */
   *,
   ::after,
   ::before {
@@ -65,62 +56,44 @@ Variables
     line-height: 1.5;
     font-size: 0.875rem;
   }
-  ul {
-    list-style-type: none;
-  }
+
   a {
     text-decoration: none;
   }
-  h1,
   h2,
-  h3,
   h4 {
     letter-spacing: var(--spacing);
     text-transform: capitalize;
     line-height: 1.25;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
   }
-  h1 {
-    font-size: 2.5rem;
-  }
+
   h2 {
-    font-size: 2rem;
-  }
-  h3 {
-    font-size: 1.25rem;
-  }
-  h4 {
-    font-size: 0.875rem;
+    font-size: 1.6rem;
   }
   p {
     margin-bottom: 1.25rem;
     color: var(--clr-grey-3);
   }
+
   @media screen and (min-width: 800px) {
-    h1 {
-      font-size: 3rem;
-    }
     h2 {
       font-size: 2.2rem;
     }
-    h3 {
-      font-size: 1.75rem;
-    }
-    h4 {
-      font-size: 1rem;
-    }
-    body {
-      font-size: 1rem;
-    }
-    h1,
-    h2,
-    h3,
-    h4 {
+    h2{
       line-height: 1;
     }
   }
-  /*  global classes */
-  
+  @media screen and (min-width: var(--fixed-width)) {
+    h2 {
+      font-size: 1.9rem;
+    }
+    h2{
+      line-height: 1;
+    }
+  }
+
   /* section */
   .section {
     width: 90vw;
@@ -134,187 +107,7 @@ Variables
     }
   }
   
-  /*
-  =============== 
-  Quiz
-  ===============
-  */
   
-  main {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .quiz {
-    width: 90vw;
-    max-width: var(--max-width);
-    margin: 4rem auto;
-    background: var(--clr-white);
-    border-radius: var(--radius);
-    padding: 3rem;
-  }
-  .quiz-small {
-    max-width: 500px;
-  }
-  .container h2 {
-    margin-bottom: 2rem;
-    text-align: center;
-    line-height: 1.5;
-    text-transform: none;
-  }
-  .answer-btn {
-    display: block;
-    width: 100%;
-    margin: 0.75rem auto;
-    background: var(--clr-primary-7);
-    border-radius: var(--radius);
-    border-color: transparent;
-    color: var(--clr-black);
-    letter-spacing: var(--spacing);
-    font-size: 1rem;
-    cursor: pointer;
-    padding: 0.5rem 0;
-    transition: var(--transition);
-  }
-  @media screen and (min-width: 576px) {
-    .answer-btn {
-      max-width: 60%;
-    }
-  }
-  .answer-btn:hover {
-    background: var(--clr-primary-5);
-    color: var(--clr-white);
-  }
-  .question-number {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: var(--spacing);
-    color: var(--clr-grey-2);
-  }
-  .correct-answers {
-    font-size: 1rem;
-    margin-bottom: 2rem;
-    text-align: right;
-    text-transform: capitalize;
-    letter-spacing: var(--spacing);
-    color: var(--clr-green-dark);
-  }
-  .next-question,
-  .close-btn,
-  .submit-btn {
-    border-radius: var(--radius);
-    border-color: transparent;
-    padding: 0.25rem 0.5rem;
-    display: block;
-    width: 35%;
-    margin-left: auto;
-    margin-top: 2rem;
-    text-transform: capitalize;
-    font-weight: 700;
-    letter-spacing: var(--spacing);
-    font-size: 1rem;
-    background: #ffb100;
-    color: var(--clr-black);
-    transition: var(--transition);
-    cursor: pointer;
-  }
-  .next-question:hover {
-    background: #805900;
-    color: #ffb100;
-  }
-  /*
-  =============== 
-  Form
-  ===============
-  */
+
   
-  .setup-form h2 {
-    margin-bottom: 2rem;
-  }
-  .form-control {
-    margin-bottom: 2rem;
-  }
-  .form-control label {
-    display: block;
-    text-transform: capitalize;
-    font-weight: 500;
-    color: var(--clr-grey-3);
-    margin-bottom: 0.5rem;
-  }
-  .form-input {
-    border: none;
-    background: var(--clr-grey-10);
-    font-size: 1rem;
-    padding: 0.25rem 0.5rem;
-    width: 100%;
-    border-radius: var(--radius);
-  }
-  .error {
-    color: var(--clr-red-dark);
-    text-transform: capitalize;
-  }
-  .submit-btn {
-    width: 100%;
-    margin-top: 3rem;
-  }
-  /*
-  =============== 
-  Loading
-  ===============
-  */
-  @keyframes spinner {
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  
-  .loading {
-    width: 5rem;
-    height: 5rem;
-    margin: 0 auto;
-    margin-top: 10rem;
-    border-radius: 50%;
-    border: 3px solid #ccc;
-    border-top-color: #ffb100;
-    animation: spinner 0.6s linear infinite;
-  }
-  
-  .modal-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.75);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: var(--transition);
-    z-index: -1;
-  }
-  .isOpen {
-    opacity: 1;
-    z-index: 999;
-  }
-  
-  .modal-content {
-    background: var(--clr-white);
-    width: 90vw;
-    max-width: var(--fixed-width);
-    padding: 3rem;
-    border-radius: var(--radius);
-    text-align: center;
-    position: relative;
-  }
-  .modal-content p {
-    font-size: 1.5rem;
-    text-transform: none;
-  }
-  .close-btn {
-    margin-right: auto;
-  }
   

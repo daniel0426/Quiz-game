@@ -1,15 +1,17 @@
 import React from "react";
 import { useGlobalContext } from "../context";
+import styles from './setupForm.module.css';
+
 
 const SetupForm = () => {
   const {quiz, error,handleChange, handleSubmit, } = useGlobalContext()
   return (
     <main>
-      <section className="quiz quiz-small">
-        <form className="setup-form">
+      <section className={`${styles.quiz} ${styles['quiz-small']}`}>
+        <form className={styles["setup-form"]}>
           <h2>Quiz</h2>
           {/* amount */}
-          <div className="form-control">
+          <div className={styles['form-control']}>
             <label htmlFor="amount">number of questions</label>
             <input
               type="number"
@@ -17,20 +19,20 @@ const SetupForm = () => {
               id="amount"
               value = {quiz.amount}
               onChange={handleChange}
-              className="form-input"
+              className={styles['form-input']}
               min={1}
               max={50}
             />
           </div>
           {/* category */}
-          <div className="form-control">
+          <div className={styles['form-control']}>
             <label htmlFor="amount">category</label>
             <select
               name="category"
               id="category"
               value = {quiz.category}
               onChange={handleChange}
-              className="form-input"
+              className={styles['form-input']}
               min={1}
               max={50}
             >
@@ -44,10 +46,10 @@ const SetupForm = () => {
             </select>
           </div>
           {/* difficulty  */}
-          <div className="form-control">
-            <label htmlFor="difficulty"></label>
+          <div className={styles['form-control']}>
+            <label htmlFor="difficulty">difficulty</label>
             <select name="difficulty" id="difficulty"
-                className='form-input'
+                className={styles['form-input']}
                 value={quiz.difficulty}
                 onChange={handleChange}
             >
@@ -57,11 +59,11 @@ const SetupForm = () => {
             </select>
           </div>
           {error && (
-            <p className='error'>
+            <p className={styles.error}>
               can't generate questions, please try different options
             </p>
           )}
-          <button type="submit" className="submit-btn" onClick={handleSubmit}>
+          <button type="submit" className={styles['submit-btn']} onClick={handleSubmit}>
               start
           </button>
         </form>

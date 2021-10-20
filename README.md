@@ -8,10 +8,10 @@ Demo Link => https://quizgang.netlify.app/
 
 ## 🔗 Index
 
-1. [Purpose of this project] (#1-Purpose-of-this-project)
-2. [Tech Stack] (#2-Tech-Stack)
+1. [Purpose of this project](#1-Purpose-of-this-project)
+2. [Tech Stack](#2-Tech-Stack)
 3. [Issue](#3--Issue)
-4. [Things to Improvement)(#6--Things-to-Improvement)
+4. [Things to Improvement](#6--Things-to-Improvement)
 
 ## 1. Purpose of this project
 
